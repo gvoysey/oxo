@@ -1,0 +1,44 @@
+* 0x0 uploader
+This is a very lightweight front-end to the [[http://0x0.st][0x0 pastebin service]] for slightly easier
+command line use.
+** Installation
+*** pipx
+#+begin_src bash
+pipx install git+https://github.com/gvoysey/oxo-uploader
+#+end_src
+*** pip
+#+begin_src bash
+  python3 -m venv oxovenv
+  oxovenv/bin/pip install git+https://github.com/gvoysey/oxo-uploader
+  ln -s oxovenv/bin/oxo ${HOME}/.local/bin # optional.
+#+end_src
+*** development (poetry required)
+#+begin_src bash
+  git clone https://github.com/gvoysey/oxo-uploader
+  cd oxo-uploader
+  poetry install
+#+end_src
+
+** Use
+Each of the three endpoints supported by 0x0 has an associated subcommand.
+#+begin_src text
+Usage: oxo [OPTIONS] COMMAND [ARGS]...
+
+Options:
+  --install-completion  Install completion for the
+                        current shell.
+
+  --show-completion     Show completion for the
+                        current shell, to copy it
+                        or customize the
+                        installation.
+
+  --help                Show this message and
+                        exit.
+
+
+Commands:
+  files    Upload one or more files.
+  repost   Repost one or more urls.
+  shorten  Shorten one or more urls.
+#+end_src
