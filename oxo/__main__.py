@@ -22,7 +22,7 @@ def files(
             res = client.post(base_url, files=payload)
             if res.status_code == httpx.codes.OK:
                 urls.append(res.text.strip())
-    typer.echo("\n".join(urls))
+    typer.echo("\n".join(urls), nl=False)
 
 
 @app.command()
@@ -35,7 +35,7 @@ def repost(urls: t.List[str], base_url=base_url):
             res = client.post(base_url, data=data)
             if res.status_code == httpx.codes.OK:
                 reposted.append(res.text.strip())
-    typer.echo("\n".join(reposted))
+    typer.echo("\n".join(reposted), nl=False)
 
 
 @app.command()
@@ -48,4 +48,4 @@ def shorten(urls: t.List[str], base_url=base_url):
             res = client.post(base_url, data=data)
             if res.status_code == httpx.codes.OK:
                 shortened.append(res.text.strip())
-    typer.echo("\n".join(shortened))
+    typer.echo("\n".join(shortened), nl=False)
